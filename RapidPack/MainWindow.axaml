@@ -5,5 +5,21 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RapidPack.MainWindow"
         Title="RapidPack">
-    Welcome to Avalonia!
+        <Grid RowDefinitions="*,Auto,Auto,Auto,Auto,*">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+                <TextBlock Text="Rapid Pack" FontSize="50" FontWeight="Bold"/>
+            </StackPanel> 
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                <TextBlock Text="Dane paczki:" FontWeight="Bold"/>
+            </StackPanel> 
+            <StackPanel Grid.Row="3" HorizontalAlignment="Center">
+                <TextBlock Text="Opcje wysyłki:" FontWeight="Bold"/>
+            </StackPanel> 
+            <StackPanel Grid.Row="4" HorizontalAlignment="Center">
+                <TextBlock Text="Typ przesyłki:" FontWeight="Bold"/>
+            </StackPanel> 
+            <StackPanel Grid.Row="5" HorizontalAlignment="Center">
+                    
+            </StackPanel> 
+        </Grid>
 </Window>
