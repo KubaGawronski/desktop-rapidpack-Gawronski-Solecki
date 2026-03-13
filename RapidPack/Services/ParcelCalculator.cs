@@ -6,7 +6,7 @@ public class ParcelCalculator
     const int cenaZaKilogram = 2;
     const int maxWaga = 30;
 
-    int CalculatePrice(int waga)
+    public int CalculatePrice(int waga)
     {
         if (waga > maxWaga)
         {
