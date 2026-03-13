@@ -8,6 +8,9 @@ public partial class MainWindow : Window
     private TextBlock _WeightErrorBox;
     private TextBox _Waga;
     private TextBlock _Cena;
+    private TextBox _Wysokosc;
+    private TextBox _Szerokosc;
+    private TextBox _Glebokosc;
     ParcelCalculator _calculator = new ParcelCalculator();
     public MainWindow()
     {
@@ -15,22 +18,34 @@ public partial class MainWindow : Window
         _Waga = this.FindControl<TextBox>("WagaTextBox");
         _WeightErrorBox = this.FindControl<TextBlock>("ShowWeightErrorTextBox");
         _Cena = this.FindControl<TextBlock>("PriceTextBox");
+        _Wysokosc = this.FindControl<TextBox>("WysokoscTextBox");
+        _Szerokosc = this.FindControl<TextBox>("SzerokoscTextBox");
+        _Glebokosc = this.FindControl<TextBox>("GlebokoscTextBox");
 
-        _Waga.KeyUp += (_, _) =>
+        _Waga.KeyUp += (_, _) => UpdatePrice();
+        _Wysokosc.KeyUp += (_, _) => UpdatePrice();
+        _Szerokosc.KeyUp += (_, _) => UpdatePrice();
+        _Glebokosc.KeyUp += (_, _) => UpdatePrice();
+        void UpdatePrice()
         {
-            if (int.TryParse(_Waga.Text, out int weight) && weight > 30)
+            if (int.TryParse(_Waga.Text, out int weight) &&
+                int.TryParse(_Wysokosc.Text, out int h) &&
+                int.TryParse(_Szerokosc.Text, out int s) &&
+                int.TryParse(_Glebokosc.Text, out int g))
             {
-                _WeightErrorBox.Text = "Waga paczki nie może przekraczać 30kg!";
-                _Cena.Text = "";
-            }
-            else
-            {
-              _WeightErrorBox.Text = "";   
-              int price = _calculator.CalculatePrice(weight);
-              _Cena.Text = $"Cena: {price} zł";
-            }
-               
-        };
-    }
+                if (weight > 30)
+                {
+                    _WeightErrorBox.Text = "Waga paczki nie może przekraczać 30kg!";
+                    _Cena.Text = "";
+                }
+                else
+                {
+                    _WeightErrorBox.Text = "";
 
+                    int price = _calculator.CalculatePrice(weight, h, s, g);
+                    _Cena.Text = $"Cena: {price} zł";
+                }
+            }
+        }
+    }
 }
