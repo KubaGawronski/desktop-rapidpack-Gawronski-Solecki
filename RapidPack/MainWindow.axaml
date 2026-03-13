@@ -24,7 +24,7 @@
                 <TextBlock Text="Typ przesyłki:" FontWeight="Bold"/>
             </StackPanel> 
             <StackPanel Grid.Row="5" HorizontalAlignment="Center">
-                    
+                <TextBlock x:Name="PriceTextBox" Text="" FontWeight="Bold" FontSize="20"/> 
             </StackPanel> 
         </Grid>
 </Window>
