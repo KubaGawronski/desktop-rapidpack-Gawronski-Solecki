@@ -15,7 +15,7 @@
                 <TextBox x:Name="SzerokoscTextBox" Watermark="Szerokość" InnerRightContent="cm" CornerRadius="8" BorderThickness="1.5"/>
                 <TextBox x:Name="GlebokoscTextBox" Watermark="Głębokość" InnerRightContent="cm" CornerRadius="8" BorderThickness="1.5"/>
                 <TextBox x:Name="WagaTextBox" Watermark="Waga" InnerRightContent="kg" CornerRadius="8" BorderThickness="1.5"/>
-                <TextBlock x:Name="ShowWeightErrorTextBox" Text="" FontWeight="Bold" FontSize="20"/>
+                <TextBlock x:Name="ShowWeightErrorTextBox" Text="" Foreground="Red" FontWeight="Bold" FontSize="20"/>
             </StackPanel> 
             <StackPanel Grid.Row="3" HorizontalAlignment="Center">
                 <TextBlock Text="Opcje wysyłki:" FontWeight="Bold"/>
