@@ -12,6 +12,7 @@ public partial class MainWindow : Window
     private TextBox _Szerokosc;
     private TextBox _Glebokosc;
     private CheckBox _Ekspres;
+    private ComboBox _TypPrzesylki;
     ParcelCalculator _calculator = new ParcelCalculator();
     public MainWindow()
     {
@@ -23,6 +24,8 @@ public partial class MainWindow : Window
         _Szerokosc = this.FindControl<TextBox>("SzerokoscTextBox");
         _Glebokosc = this.FindControl<TextBox>("GlebokoscTextBox");
         _Ekspres = this.FindControl<CheckBox>("WysylkaCheckBox");
+        _TypPrzesylki = this.FindControl<ComboBox>("TypPrzesylkiComboBox");
+        _TypPrzesylki.SelectionChanged += (_, _) => UpdatePrice();
         
         _Waga.KeyUp += (_, _) => UpdatePrice();
         _Wysokosc.KeyUp += (_, _) => UpdatePrice();
@@ -45,7 +48,8 @@ public partial class MainWindow : Window
                 {
                     _WeightErrorBox.Text = "";
                     bool ekspres = _Ekspres.IsChecked == true;
-                    int price = _calculator.CalculatePrice(weight, h, s, g, ekspres);
+                    int typ = _TypPrzesylki.SelectedIndex;
+                    int price = _calculator.CalculatePrice(weight, h, s, g, ekspres, typ);
                     _Cena.Text = $"Cena: {price} zł";
                 }
             }
