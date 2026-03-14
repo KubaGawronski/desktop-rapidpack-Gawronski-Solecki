@@ -6,15 +6,15 @@ public class ParcelCalculator
     const int cenaZaKilogram = 2;
     const int maxWaga = 30;
 
-    int CalculatePrice(int waga)
+    public int CalculatePrice(int waga, int wysokosc, int szerokosc, int glebokosc)
     {
-        if (waga > maxWaga)
-        {
-            
-        }
-
         int cena = cenaBazowa + (waga*cenaZaKilogram);
+        int sumaWymiarow = wysokosc + szerokosc + glebokosc;
 
+        if (sumaWymiarow > 150)
+        {
+            cena = (int)(cena * 1.5); 
+        }
         return cena;
     }
 }
