@@ -11,6 +11,7 @@ public partial class MainWindow : Window
     private TextBox _Wysokosc;
     private TextBox _Szerokosc;
     private TextBox _Glebokosc;
+    private CheckBox _Ekspres;
     ParcelCalculator _calculator = new ParcelCalculator();
     public MainWindow()
     {
@@ -21,11 +22,13 @@ public partial class MainWindow : Window
         _Wysokosc = this.FindControl<TextBox>("WysokoscTextBox");
         _Szerokosc = this.FindControl<TextBox>("SzerokoscTextBox");
         _Glebokosc = this.FindControl<TextBox>("GlebokoscTextBox");
-
+        _Ekspres = this.FindControl<CheckBox>("WysylkaCheckBox");
+        
         _Waga.KeyUp += (_, _) => UpdatePrice();
         _Wysokosc.KeyUp += (_, _) => UpdatePrice();
         _Szerokosc.KeyUp += (_, _) => UpdatePrice();
         _Glebokosc.KeyUp += (_, _) => UpdatePrice();
+        _Ekspres.Click += (_, _) => UpdatePrice();
         void UpdatePrice()
         {
             if (int.TryParse(_Waga.Text, out int weight) &&
@@ -41,8 +44,8 @@ public partial class MainWindow : Window
                 else
                 {
                     _WeightErrorBox.Text = "";
-
-                    int price = _calculator.CalculatePrice(weight, h, s, g);
+                    bool ekspres = _Ekspres.IsChecked == true;
+                    int price = _calculator.CalculatePrice(weight, h, s, g, ekspres);
                     _Cena.Text = $"Cena: {price} zł";
                 }
             }
