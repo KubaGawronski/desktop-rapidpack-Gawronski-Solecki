@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
         x:Class="RapidPack.MainWindow"
         Title="RapidPack">
         <Grid RowDefinitions="*,Auto,Auto,Auto,Auto,*">
@@ -18,13 +18,25 @@
                 <TextBlock x:Name="ShowWeightErrorTextBox" Text="" Foreground="Red" FontWeight="Bold" FontSize="20"/>
             </StackPanel> 
             <StackPanel Grid.Row="3" HorizontalAlignment="Center">
-                <TextBlock Text="Opcje wysyłki:" FontWeight="Bold"/>
+                <TextBlock Text="Opcje wysyłki:" FontWeight="Bold" FontSize="20"/>
+                <CheckBox x:Name="WysylkaCheckBox" Content="Ekspres"/>
             </StackPanel> 
             <StackPanel Grid.Row="4" HorizontalAlignment="Center">
-                <TextBlock Text="Typ przesyłki:" FontWeight="Bold"/>
+                <TextBlock Text="Typ przesyłki:" FontWeight="Bold" FontSize="20" TextAlignment="Center"/>
+                <ComboBox x:Name="TypPrzesylkiComboBox" SelectedIndex="0" Width="200" Margin="10">
+                    <ComboBoxItem Content="Standardowa"/>
+                    <ComboBoxItem Content="Ostrożnie (szkło)"/>
+                    <ComboBoxItem Content="Paleta"/>
+                </ComboBox>
             </StackPanel> 
             <StackPanel Grid.Row="5" HorizontalAlignment="Center">
                 <TextBlock x:Name="PriceTextBox" Text="" FontWeight="Bold" FontSize="20"/> 
+                <TextBlock x:Name="SummaryTextBlock"
+                           Text=""
+                           FontSize="16"
+                           Margin="0,10,0,0"
+                           TextAlignment="Center"/>
+                <Button x:Name="SubmitButton" Content="Wyceń"  Width="200" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </StackPanel> 
         </Grid>
 </Window>
