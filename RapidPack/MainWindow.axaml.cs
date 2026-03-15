@@ -13,6 +13,7 @@ public partial class MainWindow : Window
     private TextBox _Glebokosc;
     private CheckBox _Ekspres;
     private ComboBox _TypPrzesylki;
+    private Button _SubmitButton;
     ParcelCalculator _calculator = new ParcelCalculator();
     public MainWindow()
     {
@@ -25,6 +26,8 @@ public partial class MainWindow : Window
         _Glebokosc = this.FindControl<TextBox>("GlebokoscTextBox");
         _Ekspres = this.FindControl<CheckBox>("WysylkaCheckBox");
         _TypPrzesylki = this.FindControl<ComboBox>("TypPrzesylkiComboBox");
+        _SubmitButton = this.FindControl<Button>("SubmitButton");
+        _SubmitButton.IsEnabled = false;
         _TypPrzesylki.SelectionChanged += (_, _) => UpdatePrice();
         
         _Waga.KeyUp += (_, _) => UpdatePrice();
@@ -43,6 +46,7 @@ public partial class MainWindow : Window
                 {
                     _WeightErrorBox.Text = "Waga paczki nie może przekraczać 30kg!";
                     _Cena.Text = "";
+                    _SubmitButton.IsEnabled = false;
                 }
                 else
                 {
@@ -51,7 +55,13 @@ public partial class MainWindow : Window
                     int typ = _TypPrzesylki.SelectedIndex;
                     int price = _calculator.CalculatePrice(weight, h, s, g, ekspres, typ);
                     _Cena.Text = $"Cena: {price} zł";
+                    _SubmitButton.IsEnabled = true;
                 }
+            }
+            else
+            {
+                _SubmitButton.IsEnabled = false;
+                _Cena.Text = "";
             }
         }
     }
