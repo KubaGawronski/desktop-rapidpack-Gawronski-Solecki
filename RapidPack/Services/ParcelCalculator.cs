@@ -21,7 +21,7 @@ public class ParcelCalculator
         }
         if (typ == 2)
         {
-            cena = 100;
+            return 100;
         }
         if (ekspres)
         {
