@@ -6,14 +6,23 @@
 
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
         <Style Selector="TextBox">
             <Setter Property="Height" Value="32"/>
             <Setter Property="Padding" Value="6"/>
             <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Background" Value="#2a2a2a"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#444"/>
         </Style>
 
         <Style Selector="ComboBox">
             <Setter Property="Height" Value="32"/>
+            <Setter Property="Background" Value="#2a2a2a"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
 
         <Style Selector="Button">
@@ -22,7 +31,7 @@
         </Style>
 
         <Style Selector="Button:pointerover">
-            <Setter Property="Background" Value="#005f99"/>
+            <Setter Property="Background" Value="#265df2"/>
         </Style>
     </Application.Styles>
 </Application>
