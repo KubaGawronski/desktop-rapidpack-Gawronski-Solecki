@@ -31,5 +31,13 @@ public class MainWindowTests
 
       Assert.Equal(100, price);
    }
-   
+   [AvaloniaFact]
+   public void CzyEkspresDodaje15Zl()
+   {
+      var calculator = new ParcelCalculator();
+
+      int price = calculator.CalculatePrice(10, 10, 10, 10, true, 0);
+
+      Assert.Equal(45, price);
+   }
 }
