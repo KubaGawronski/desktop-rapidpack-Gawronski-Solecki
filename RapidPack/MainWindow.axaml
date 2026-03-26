@@ -5,38 +5,69 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
         x:Class="RapidPack.MainWindow"
         Title="RapidPack">
-        <Grid RowDefinitions="*,Auto,Auto,Auto,Auto,*">
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-                <TextBlock Text="Rapid Pack" FontSize="50" FontWeight="Bold"/>
-            </StackPanel> 
-            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Spacing="4">
-                <TextBlock Text="Dane paczki:" FontWeight="Bold" FontSize="20"/>
-                <TextBox x:Name="WysokoscTextBox" Watermark="Wysokość" InnerRightContent="cm" CornerRadius="8" BorderThickness="1.5"/>
-                <TextBox x:Name="SzerokoscTextBox" Watermark="Szerokość" InnerRightContent="cm" CornerRadius="8" BorderThickness="1.5"/>
-                <TextBox x:Name="GlebokoscTextBox" Watermark="Głębokość" InnerRightContent="cm" CornerRadius="8" BorderThickness="1.5"/>
-                <TextBox x:Name="WagaTextBox" Watermark="Waga" InnerRightContent="kg" CornerRadius="8" BorderThickness="1.5"/>
-                <TextBlock x:Name="ShowWeightErrorTextBox" Text="" Foreground="Red" FontWeight="Bold" FontSize="20"/>
-            </StackPanel> 
-            <StackPanel Grid.Row="3" HorizontalAlignment="Center">
-                <TextBlock Text="Opcje wysyłki:" FontWeight="Bold" FontSize="20"/>
-                <CheckBox x:Name="WysylkaCheckBox" Content="Ekspres"/>
-            </StackPanel> 
-            <StackPanel Grid.Row="4" HorizontalAlignment="Center">
-                <TextBlock Text="Typ przesyłki:" FontWeight="Bold" FontSize="20" TextAlignment="Center"/>
-                <ComboBox x:Name="TypPrzesylkiComboBox" SelectedIndex="0" Width="200" Margin="10">
-                    <ComboBoxItem Content="Standardowa"/>
-                    <ComboBoxItem Content="Ostrożnie (szkło)"/>
-                    <ComboBoxItem Content="Paleta"/>
-                </ComboBox>
-            </StackPanel> 
-            <StackPanel Grid.Row="5" HorizontalAlignment="Center">
-                <TextBlock x:Name="PriceTextBlock" Text="" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/> 
-                <TextBlock x:Name="SummaryTextBlock"
-                           Text=""
-                           FontSize="20"
-                           Margin="0,10,0,10"
-                           TextAlignment="Center"/>
-                <Button x:Name="SubmitButton" Content="Wyceń"  Width="200" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
-            </StackPanel> 
+        <Grid Background="#121212">
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Width="400">
+
+            <Border Background="#1e1e1e"
+                    Padding="24"
+                    CornerRadius="10"
+                    BorderBrush="#333"
+                    BorderThickness="1">
+
+                <StackPanel Spacing="10">
+
+                    <TextBlock Text="RapidPack 📦"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Wysokość"/>
+                    <TextBox x:Name="WysokoscTextBox" InnerRightContent="cm"/>
+
+                    <TextBlock Text="Szerokość"/>
+                    <TextBox x:Name="SzerokoscTextBox" InnerRightContent="cm"/>
+
+                    <TextBlock Text="Głębokość"/>
+                    <TextBox x:Name="GlebokoscTextBox" InnerRightContent="cm"/>
+
+                    <TextBlock Text="Waga"/>
+                    <TextBox x:Name="WagaTextBox" InnerRightContent="kg"/>
+
+                    <TextBlock x:Name="ShowWeightErrorTextBox"
+                               Foreground="Red"/>
+
+                    <CheckBox x:Name="WysylkaCheckBox"
+                              Content="Ekspres (+15 zł)"/>
+
+                    <TextBlock Text="Typ przesyłki"/>
+                    <ComboBox x:Name="TypPrzesylkiComboBox" SelectedIndex="0">
+                        <ComboBoxItem Content="Standardowa"/>
+                        <ComboBoxItem Content="Ostrożnie (szkło)"/>
+                        <ComboBoxItem Content="Paleta"/>
+                    </ComboBox>
+
+                    <TextBlock x:Name="PriceTextBlock"
+                               FontSize="18"
+                               Margin="0,10,0,0"/>
+
+                    <Button x:Name="SubmitButton"
+                            Content="Wyceń"
+                            Height="40"
+                            Background="#3a86ff"
+                            Foreground="White"
+                            CornerRadius="6"/>
+
+                    <TextBlock x:Name="SummaryTextBlock"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Margin="0,10,0,0"
+                               TextWrapping="Wrap"/>
+
+                </StackPanel>
+            </Border>
         </Grid>
+    </Grid>
 </Window>
