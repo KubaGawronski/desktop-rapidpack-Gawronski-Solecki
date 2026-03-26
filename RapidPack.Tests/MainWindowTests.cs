@@ -22,5 +22,14 @@ public class MainWindowTests
       
       Assert.Equal(45, price);
    }
+   [AvaloniaFact]
+   public void CzyPaletaUstawiaCeneNa100()
+   {
+      var calculator = new ParcelCalculator();
+
+      int price = calculator.CalculatePrice(10, 10, 10, 10, false, 2);
+
+      Assert.Equal(100, price);
+   }
    
 }
