@@ -13,5 +13,14 @@ public class MainWindowTests
          calculator.CalculatePrice(35, 10, 10, 10, false, 0)
       );
    }
+   [AvaloniaFact]
+   public void CzyOplataGabarytowaDziala()
+   {
+      var calculator = new ParcelCalculator();
+      
+      int price = calculator.CalculatePrice(10, 50, 50, 60, false, 0);
+      
+      Assert.Equal(45, price);
+   }
    
 }
