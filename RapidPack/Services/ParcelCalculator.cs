@@ -1,4 +1,6 @@
-﻿namespace RapidPack.Services;
+﻿using System;
+
+namespace RapidPack.Services;
 
 public class ParcelCalculator
 {
@@ -11,6 +13,11 @@ public class ParcelCalculator
         int cena = cenaBazowa + (waga*cenaZaKilogram);
         int sumaWymiarow = wysokosc + szerokosc + glebokosc;
 
+        if (waga > maxWaga)
+        {
+            throw new ArgumentException("Waga nie może przekraczać 30kg");
+        }
+        
         if (sumaWymiarow > 150)
         {
             cena = (int)(cena * 1.5); 
