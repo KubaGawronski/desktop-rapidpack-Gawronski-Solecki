@@ -71,10 +71,10 @@ Na koniec musicie połączyć siły w pliku `MainWindow.axaml.cs`.
 ## 🧪 Scenariusze Testowe (xUnit)
 
 Wasze testy muszą pokryć co najmniej te przypadki:
-- [ ] **Waga:** Czy 35 kg powoduje błąd?
-- [ ] **Gabaryt:** Czy paczka 50x50x60 cm ma doliczone +50% ceny?
-- [ ] **Paleta:** Czy wybranie "Palety" ustawia cenę na sztywno (100 zł), ignorując wagę?
-- [ ] **Ekspres:** Czy zaznaczenie opcji dodaje 15 zł?
+- [x] **Waga:** Czy 35 kg powoduje błąd?
+- [x] **Gabaryt:** Czy paczka 50x50x60 cm ma doliczone +50% ceny?
+- [x] **Paleta:** Czy wybranie "Palety" ustawia cenę na sztywno (100 zł), ignorując wagę?
+- [x] **Ekspres:** Czy zaznaczenie opcji dodaje 15 zł?
 
 ---
 
